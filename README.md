@@ -54,6 +54,10 @@ $ yarn start
 
 Navigate to `http://localhost:3000/` to explore the deployed application.
 
+You can modify visual representation of web store by passing environment variables to `yarn start` command.
+Example: `BG_COLOR=#bae8c0 LINK_COLOR=#b0443a TEXT_COLOR=#003366 LOGO=https://upload.wikimedia.org/wikipedia/commons/8/85/Logo-Test.png yarn start`
+Keep in mind that you don't need to update build files for this, just start node server with different env vars
+
 ## Rust Programs
 
 The Rust programs will soon be added to this repo with JavaScript

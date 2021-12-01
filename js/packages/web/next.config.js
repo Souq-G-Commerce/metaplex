@@ -3,17 +3,32 @@ const withLess = require('next-with-less');
 
 const assetPrefix = process.env.ASSET_PREFIX || '';
 
+const bgColor = process.env.BG_COLOR;
+const linkColor = process.env.LINK_COLOR;
+const textColor = process.env.TEXT_COLOR;
+const logo = process.env.LOGO;
+console.info("LOGO: ", logo);
+console.info("BG_COLOR: ", bgColor);
+console.info("LINK_COLOR: ", linkColor);
+console.info("TEXT_COLOR: ", textColor);
+
+const modifyVars = {
+    '@primary-color': linkColor || '#768BF9',
+    '@metaplex-primary-color': linkColor || '#00ffbd',
+    '@bg-color': bgColor || '#121212',
+    '@text-color': textColor || 'rgba(255, 255, 255)',
+    '@assetPrefix': assetPrefix || "''",
+    '@subtext-color': textColor || '#c7c6c5',
+    '@accent-color': linkColor || '#ffffff',
+}
+
 const plugins = [
   [
     withLess,
     {
       lessLoaderOptions: {
         lessOptions: {
-          modifyVars: {
-            '@primary-color': '#768BF9',
-            '@text-color': 'rgba(255, 255, 255)',
-            '@assetPrefix': assetPrefix || "''",
-          },
+          modifyVars,
           javascriptEnabled: true,
         },
       },
@@ -39,6 +54,7 @@ module.exports = withPlugins(plugins, {
     NEXT_SPL_TOKEN_MINTS: process.env.SPL_TOKEN_MINTS,
     NEXT_CG_SPL_TOKEN_IDS: process.env.CG_SPL_TOKEN_IDS,
     NEXT_ENABLE_NFT_PACKS: process.env.REACT_APP_ENABLE_NFT_PACKS,
+    LOGO: process.env.LOGO,
 
   },
   async rewrites() {

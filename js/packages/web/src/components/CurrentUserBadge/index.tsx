@@ -319,12 +319,7 @@ export const CurrentUserBadge = (props: {
         <Button className="wallet-key">
           {image}
           {name && (
-            <span
-              style={{
-                marginLeft: '0.5rem',
-                fontWeight: 600,
-              }}
-            >
+            <span className="wallet-key-value">
               {name}
             </span>
           )}
@@ -414,7 +409,7 @@ export const Cog = () => {
         }
       >
         <Button className="wallet-key">
-          <img src="/cog.svg" />
+          <div className="wallet-icon" />
         </Button>
       </Popover>
     </div>
